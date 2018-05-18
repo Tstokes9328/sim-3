@@ -11,7 +11,11 @@ module.exports = {
     loginUser: (req, res) => {
         let {username, password} = req.body;
         req.app.get('db').login_user([username, password]).then((user) => {
-            res.status(200).send(user[0])
+            if(user[0]){
+                res.status(200).send(user[0])
+            } else {
+                res.status(401).send('Not Allowed')
+            }
         })
     }
 }
