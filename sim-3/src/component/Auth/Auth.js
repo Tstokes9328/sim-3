@@ -40,7 +40,7 @@ class Auth extends Component {
         let {username, password} = this.state;
         axios.post('/users/login', {username, password}).then((res) => {
             window.location="/#/dashboard"
-            this.props.loggedUser(res.data.userId, res.data.username, res.data.profile);
+            this.props.loggedUser(res.data.userId, res.data.username, res.data.profile_pic);
         })
     }
 
